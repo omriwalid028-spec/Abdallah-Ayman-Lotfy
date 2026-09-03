@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --mint: #00ff9d;
+    --fitch-gold: #c99b52;
+    --dark: #0a0b0e;
+    --panel: #16181d;
+
+    --color-background: #0a0b0e;
+    --color-surface: #16181d;
+    --color-surface-elevated: #1e2128;
+    --color-border: rgba(0, 255, 157, 0.12);
+    --color-text-primary: #ffffff;
+    --color-text-muted: #8e9ca8;
+    --color-mint: #00ff9d;
+    --color-mint-dark: #00cc7d;
+    --color-mint-glow: rgba(0, 255, 157, 0.28);
+    --color-n8n-orange: #ff6d5a;
+    --color-telegram-blue: #229ed9;
+    --color-sheets-green: #0f9d58;
+
+    /* Fitch theme palette */
+    --fitch-bg: #f1f0e4;
+    --fitch-text: #3e3f29;
+    --fitch-neutral-1: #7d8d86;
+    --fitch-neutral-2: #888888;
+    --fitch-neutral-3: #c99b52;
+  }
+
+  body {
+    font-family: 'Inter', 'IBM Plex Sans Arabic', 'Alexandria', sans-serif;
+    background-color: var(--dark);
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Light Mode (Fitch Minimal / Editorial Paper) Contrast & Color Enforcement */
+html.theme-fitch-minimal {
+  --mint: #007a49;
+  --fitch-gold: #9e6f1f;
+  --dark: #f8f7f2;
+  --panel: #ffffff;
+  --color-background: #f8f7f2;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f0eee3;
+  --color-border: rgba(15, 23, 42, 0.16);
+  --color-text-primary: #090d16;
+  --color-text-muted: #1e293b;
+}
+
+html.theme-fitch-minimal body {
+  background-color: #f8f7f2 !important;
+  color: #090d16 !important;
+}
+
+/* Fix text contrast in light mode: prevent text from blending with background */
+html.theme-fitch-minimal h1,
+html.theme-fitch-minimal h2,
+html.theme-fitch-minimal h3,
+html.theme-fitch-minimal h4,
+html.theme-fitch-minimal h5,
+html.theme-fitch-minimal h6 {
+  color: #090d16 !important;
+}
+
+html.theme-fitch-minimal .text-white {
+  color: #090d16 !important;
+}
+
+html.theme-fitch-minimal p {
+  color: #1e293b !important;
+}
+
+html.theme-fitch-minimal .text-gray-100 {
+  color: #090d16 !important;
+  font-weight: 700 !important;
+}
+
+html.theme-fitch-minimal .text-gray-200 {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
+
+html.theme-fitch-minimal .text-gray-300 {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+}
+
+html.theme-fitch-minimal .text-gray-400 {
+  color: #374151 !important;
+  font-weight: 700 !important;
+}
+
+html.theme-fitch-minimal .text-gray-500 {
+  color: #4b5563 !important;
+  font-weight: 700 !important;
+}
+
+/* Fix glass panels and surfaces in light mode so cards are crisp and readable */
+html.theme-fitch-minimal .glass {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.14) !important;
+  box-shadow: 0 4px 20px -3px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.theme-fitch-minimal .glass-panel {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(15, 23, 42, 0.16) !important;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.theme-fitch-minimal header {
+  background-color: rgba(248, 247, 242, 0.94) !important;
+  border-bottom-color: rgba(15, 23, 42, 0.14) !important;
+  color: #090d16 !important;
+}
+
+html.theme-fitch-minimal footer {
+  background-color: #f1efe4 !important;
+  border-top-color: rgba(15, 23, 42, 0.16) !important;
+  color: #374151 !important;
+}
+
+html.theme-fitch-minimal .workflow-grid {
+  background-image: radial-gradient(#007a49 1px, transparent 1px) !important;
+  opacity: 0.12 !important;
+}
+
+html.theme-fitch-minimal .text-mint {
+  color: #007a49 !important;
+}
+
+html.theme-fitch-minimal .bg-mint {
+  background-color: #008751 !important;
+  color: #ffffff !important;
+}
+
+html.theme-fitch-minimal .border-mint {
+  border-color: #008751 !important;
+}
+
+html.theme-fitch-minimal .tech-tag {
+  background: rgba(0, 122, 73, 0.12) !important;
+  border-color: rgba(0, 122, 73, 0.3) !important;
+  color: #00663d !important;
+  font-weight: 700 !important;
+}
+
+html.theme-fitch-minimal .editorial-strike,
+html.theme-fitch-minimal .editorial-strike-sm {
+  background: linear-gradient(to bottom, #007a49, transparent) !important;
+}
+
+html.theme-fitch-minimal .border-white\/10,
+html.theme-fitch-minimal .border-white\/20,
+html.theme-fitch-minimal .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.14) !important;
+}
+
+html.theme-fitch-minimal .bg-white\/\[0\.04\],
+html.theme-fitch-minimal .bg-white\/\[0\.03\],
+html.theme-fitch-minimal .bg-white\/\[0\.05\],
+html.theme-fitch-minimal .bg-white\/\[0\.06\],
+html.theme-fitch-minimal .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+html.theme-fitch-minimal .bg-n8n-canvas {
+  background-color: #f2f0e6 !important;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.22) 1px, transparent 1px) !important;
+}
+
+html.theme-fitch-minimal input,
+html.theme-fitch-minimal textarea,
+html.theme-fitch-minimal select {
+  background-color: #ffffff !important;
+  color: #090d16 !important;
+  border-color: rgba(15, 23, 42, 0.22) !important;
+}
+
+html.theme-fitch-minimal input::placeholder,
+html.theme-fitch-minimal textarea::placeholder {
+  color: #4b5563 !important;
+  font-weight: 600;
+}
+
+/* Editorial Aesthetic specific utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 255, 157, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-panel {
+  background: rgba(22, 24, 29, 0.75);
+  border: 1px solid rgba(0, 255, 157, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.text-mint {
+  color: var(--mint);
+}
+
+.bg-mint {
+  background-color: var(--mint);
+}
+
+.border-mint {
+  border-color: var(--mint);
+}
+
+.workflow-grid {
+  background-image: radial-gradient(var(--mint) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.1;
+}
+
+.editorial-strike {
+  width: 4px;
+  height: 100%;
+  min-height: 48px;
+  background: linear-gradient(to bottom, var(--mint), transparent);
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.editorial-strike-sm {
+  width: 3px;
+  height: 28px;
+  background: linear-gradient(to bottom, var(--mint), transparent);
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.tech-tag {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px solid rgba(0, 255, 157, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--mint);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+/* Behance Arabic Display Calligraphy matching "خطوط عربية مجانية" image */
+.font-arabic-calligraphy {
+  font-family: 'Aref Ruqaa', 'Amiri', 'El Messiri', serif;
+}
+
+.font-arabic-heading {
+  font-family: 'IBM Plex Sans Arabic', 'El Messiri', 'Alexandria', sans-serif;
+  font-weight: 700;
+}
+
+.font-arabic-body {
+  font-family: 'IBM Plex Sans Arabic', 'Alexandria', 'Cairo', sans-serif;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.subtext-bold {
+  font-weight: 700 !important;
+}
+
+.font-english-display {
+  font-family: 'Inter', 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+/* n8n canvas dot grid */
+.bg-n8n-canvas {
+  background-color: #14161a;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Biomechanic circuit grid */
+.bg-circuit-pattern {
+  background-image: radial-gradient(rgba(0, 255, 157, 0.08) 1px, transparent 1px),
+                    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+}
+
+/* Glow effects */
+.shadow-mint-glow {
+  box-shadow: 0 0 25px -3px rgba(0, 255, 157, 0.35);
+}
+
+.shadow-mint-sm {
+  box-shadow: 0 0 12px -2px rgba(0, 255, 157, 0.25);
+}
+
+.shadow-fitch-gold {
+  box-shadow: 0 0 20px -2px rgba(201, 155, 82, 0.3);
+}
+
+/* Flow line pulse animation */
+@keyframes pulseFlow {
+  0% {
+    stroke-dashoffset: 40;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-pulse-flow {
+  stroke-dasharray: 6 6;
+  animation: pulseFlow 1.2s linear infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0b0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2128;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff9d;
+}
